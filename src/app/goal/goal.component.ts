@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{Goal}from '../goal';
+import { GoalService } from '../goal-service/goal.service';
 @Component({
   selector: 'app-goal',
   templateUrl: './goal.component.html',
@@ -33,7 +34,9 @@ export class GoalComponent implements OnInit {
       }
     }
   }
-   constructor(){}
+   constructor(goalService:GoalService){
+     this.goals=goalService.getGoals()
+   }
 
    ngOnInit(){}
 }
